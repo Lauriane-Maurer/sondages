@@ -5,7 +5,16 @@
     <meta charset="UTF-8">
     <title>Header</title>
 </head>
-<header th:fragment="header">
-    <h1>Votez pour vos propositions préférées</h1>
-</header>
+    <header th:fragment="header">
+        <h1>Votez pour vos propositions préférées</h1>
+        <span sec:authorize="!isAuthenticated()">
+            <button ><a th:href="@{/connexion}">Se connecter</a></button>
+        </span>
+        <span sec:authorize="isAuthenticated()">
+            Utilisateur : <span sec:authentication="name">Bob</span>
+        <span sec:authentication="principal.authorities">[ROLE_USER]</span>&nbsp;|&nbsp;
+            <button class="connexion"><a th:href="@{/deconnexion}">Se déconnecter</a></button>
+            <button class="connexion"><a th:href="@{/modification}">Modifier son mot de passe</a></button>
+    </header>
+
 </html>

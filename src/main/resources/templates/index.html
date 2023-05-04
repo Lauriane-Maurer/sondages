@@ -18,11 +18,13 @@
 
 <div th:replace="~{fragment-form :: new-sondage (newSondage=${newSondage})}"></div>
 
-<div id="sondages" th:fragment="all-sondages">
+<div id="sondages" th:fragment="all-sondages" >
     <th:block th:each="sondage : ${sondages}">
         <div th:replace="~{fragment-sondage :: single-sondage(sondage=${sondage})}"></div>
     </th:block>
 </div>
+
+<button><a href="/admin/createUser">Ajouter un utilisateur</a></button>
 
 <script src="../static/sondages.js" th:src="@{/sondages.js}" type="module"></script>
 </body>

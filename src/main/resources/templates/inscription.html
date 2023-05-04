@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../static/styles.css" th:href="@{/styles.css}"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lobster&display=swap">
+    <title>CreateUser</title>
+</head>
+
+<body>
+<header>
+    <h1>Création d'un nouvel utilisateur</h1>
+</header>
+
+<main>
+
+    <form id="form-new-user" action="/inscription" method="post" th:object="${user}">
+
+        <label>Login:</label>
+        <input type="text" th:field="*{login}">
+        <br>
+
+        <label>Password:</label>
+        <input type="password" th:field="*{password}">
+        <br>
+
+        <label>ConfirmPassword:</label>
+        <input type="password" th:field="*{confirmPassword}">
+        <br>
+        <br>
+        <input class="btn btn-ok" type="submit" value="Submit"/>
+
+    </form>
+
+</main>
+
+</body>
+</html>
